@@ -98,6 +98,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Media folder
+MEDIA_URL = '/media/'  # URL prefix for media files
+MEDIA_ROOT = BASE_DIR / 'media'  # Folder to store uploaded media
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
