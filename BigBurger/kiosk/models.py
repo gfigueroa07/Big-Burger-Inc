@@ -20,13 +20,13 @@ class Items(models.Model):
     
 class Coupons(models.Model):
     id = models.UUIDField(auto_created=True, primary_key=True)
-    # items_id = models.UUIDField(auto_created=True, models.ForeignKey("app.Model", verbose_name=_(""), on_delete=models.CASCADE)
+    items_id = models.ForeignKey(Items, auto_created=True)
     name = models.CharField(unique=True)
     discount = models.DecimalField(max_digits=5, decimal_places=2)
-    discount_perc = '' #wym by perc sensei? benefit? huh?
+    discount_percentage = models.IntegerField(max_lenght=2) 
     maximum_discount_value = models.DecimalField(max_digits=5, decimal_places=2)
     max_units_per_customer = models.IntegerField(max_length=1)
     single_use = models.BooleanField(default=True)
-    needed_item_quantity_to_use = models.IntegerField(default=1000000000)
+    needed_item_quantity_to_use = models.IntegerField(default=1)
     applicable_on_item_amount = models.IntegerField(max_length=1)
     
