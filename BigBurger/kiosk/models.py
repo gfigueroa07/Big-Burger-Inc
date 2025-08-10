@@ -24,7 +24,7 @@ class Items(models.Model):
     
 class Coupons(models.Model):
     id = models.UUIDField(auto_created=True, primary_key=True)
-    items_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    items_id = models.ForeignKey(Items, on_delete=models.CASCADE)
     name = models.CharField(unique=True)
     discount = models.DecimalField(max_digits=5, decimal_places=2)
     discount_percentage = models.IntegerField() 
