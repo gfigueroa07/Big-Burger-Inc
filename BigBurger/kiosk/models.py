@@ -37,7 +37,7 @@ class Coupons(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(unique=True, max_length=100)
     telephone_number = models.DecimalField(max_digits=10, decimal_places=2)
-    verification_code = models.DecimalField(max_digits=4, decimal_places=2\)
+    verification_code = models.DecimalField(max_digits=4, decimal_places=2)
 
     def __str__(self):
         return self.name
