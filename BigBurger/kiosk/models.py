@@ -13,7 +13,7 @@ class Items(models.Model):
         return self.name
     
 # Create your models here.
-class Customer(models.Model):
+class Customers(models.Model):
     id = models.UUIDField(auto_created=True, default=uuid.uuid4, primary_key=True)
     name = models.CharField(max_length=100)
     email = models.CharField(unique=True, max_length=100)
@@ -41,7 +41,7 @@ class Coupons(models.Model):
 
     
 class CustomerCoupon(models.Model):
-    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    customer = models.ForeignKey('Customers', on_delete=models.CASCADE)
     coupon = models.ForeignKey('Coupons', on_delete=models.CASCADE)
     acquired_at = models.DateTimeField()
     expires_at = models.DateTimeField()
