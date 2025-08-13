@@ -22,7 +22,7 @@ class Customer(models.Model):
     email = models.CharField(unique=True, max_length=100)
     telephone_number = models.DecimalField(max_digits=10, decimal_places=2)
     verification_code = models.DecimalField(max_digits=4,  decimal_places=2)
-    coupons = models.ManyToManyField('Coupons', through='CustomerCoupon')
+    coupons = models.ManyToManyField('Coupon', through='CustomerCoupon')
 
     class Meta:
         db_table = 'customers'
@@ -32,7 +32,7 @@ class Customer(models.Model):
     
 class Coupon(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    items_id = models.ForeignKey(Items, on_delete=models.CASCADE)
+    items_id = models.ForeignKey(Item, on_delete=models.CASCADE)
     name = models.CharField(unique=True, max_length=100)
     discount = models.DecimalField(max_digits=5, decimal_places=2)
     discount_percentage = models.DecimalField(max_digits=5, decimal_places=2)
