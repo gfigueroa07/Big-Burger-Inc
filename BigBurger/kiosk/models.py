@@ -4,7 +4,7 @@ from django.db import models
 class Item(models.Model):
     id = models.UUIDField(auto_created=True, default=uuid.uuid4, primary_key=True)
     name = models.CharField(unique=True)
-    category = models.CharField(unique=True, max_length=20)
+    category = models.CharField(max_length=20)
     picture = models.ImageField(upload_to='item_images/', blank=True, null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     is_available = models.BooleanField(default=True)
