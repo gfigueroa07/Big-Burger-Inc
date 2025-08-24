@@ -10,7 +10,7 @@ def add_item(request):
         if form.is_valid():
             form.save()
             return redirect('add_item')
-    else:
+    elif request.method == 'GET':
         form = ItemForm()
     items = Item.objects.all()
     return render(request, 'add_item.html', {'form': form, 'items': items})
